@@ -16,6 +16,7 @@
             s = "status";
             a = "add .";
             i = "init";
+            p = "push origin master";
           };
         };
       };
