@@ -14,18 +14,3 @@
     };
   };
 }
-
-# inputs.fup.lib.mkFlake {
-#     inherit self inputs;
-#     supportedSystems = [ "x86_64-linux" ];
-#     channelsConfig.allowUnfree = true;
-#     hosts.whorf.modules = [ ./configuration.nix ];
-# };
-
-# homeConfigurations.whorf = home-manager.lib.homeManagerConfiguration {
-#   system = "x86_64-linux";
-#   # configuration = ./home.nix;
-#   extraModules = [
-#     ./home.nix
-#   ];
-# };
