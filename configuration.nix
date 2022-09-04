@@ -5,21 +5,28 @@
   home-manager = {
     useGlobalPkgs = true;
     users.whorf = {
-      programs.git = {
-        enable = true;
-        userName = "whorf";
-        userEmail = "whorf@whorf.dev";
-        extraConfig = {
-          init.defaultBranch = "master";
-        };
-        aliases = {
-          c = "commit";
-          s = "status";
-          a = "add";
-          i = "init";
+      programs = {
+        git = {
+          enable = true;
+          userName = "whorf";
+          userEmail = "whorf@whorf.dev";
+          extraConfig = { init.defaultBranch = "master"; };
+          aliases = {
+            c = "commit -am";
+            s = "status";
+            a = "add .";
+            i = "init";
+          };
         };
       };
     };
+  };
+
+  programs.bash.shellAliases = {
+    g = "git";
+    v = "nvim";
+    l = "exa -la";
+    nrs = "sudo nixos-rebuild switch --flake '/home/whorf/nix#whorf'";
   };
 
   sound.enable = true;
