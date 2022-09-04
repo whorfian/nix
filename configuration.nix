@@ -16,6 +16,7 @@
             s = "status";
             a = "add .";
             i = "init";
+            d = "diff";
             p = "push origin master";
           };
         };
@@ -52,12 +53,13 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
+      # windowManager.bspwm.enable = true;
       layout = "us";
       xkbVariant = "";
-      libinput.enable = true; # touchpad if not using desktopManager
+      # libinput.enable = true; # touchpad if not using desktopManager
       displayManager = {
+        gdm.enable = true;
         autoLogin = {
           enable = true;
           user = "whorf";
