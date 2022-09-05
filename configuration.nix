@@ -1,15 +1,20 @@
-{ config, lib, pkgs, home-manager, ... }: {
+{ config, lib, pkgs, home-manager, user, email, version, ... }:
+let
+  user = "whorf";
+  email = "whorf@whorf.dev";
+  version = "22.05";
+in {
   imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
 
   # home-manager = ./home.nix; # how?
   home-manager = {
     useGlobalPkgs = true;
-    users.whorf = {
+    users."${user}" = {
       programs = {
         git = {
           enable = true;
-          userName = "whorf";
-          userEmail = "whorf@whorf.dev";
+          userName = "${user}";
+          userEmail = "${email}";
           extraConfig = { init.defaultBranch = "master"; };
           aliases = {
             c = "commit -am";
@@ -28,7 +33,7 @@
     g = "git";
     v = "nvim";
     l = "exa -la";
-    nrs = "sudo nixos-rebuild switch --flake '/home/whorf/nix#whorf'";
+    nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
   };
 
   sound.enable = true;
@@ -62,7 +67,7 @@
         gdm.enable = true;
         autoLogin = {
           enable = true;
-          user = "whorf";
+          user = "${user}";
         };
       };
     };
@@ -85,7 +90,7 @@
     sudo.wheelNeedsPassword = false;
   };
 
-  users.users.whorf = {
+  users.users."${user}" = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
   };
@@ -95,56 +100,50 @@
   environment = {
     variables = {
       EDITOR = "nvim";
+      VISUAL = "nvim";
       TERMINAL = "kitty";
+      SHELL = "bash";
+      PAGER = "less";
     };
     systemPackages = with pkgs; [
-      nixfmt
-      vim
-      neovim
-      emacs
-      vscode
-      google-chrome
-      alacritty
-      neofetch
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
-      wget
-      discord
-      gnome.gnome-tweaks
-      clang
-      coreutils
-      git
-      ripgrep
-      fd
-      fish
-      zsh
-      fzf
-      rofi
-      bspwm
-      sxhkd
-      cmake
-      jq
-      maim
-      feh
-      xclip
-      bat
-      nyxt
-      direnv
-      gh
-      osu-lazer
-      clonehero
-      kitty
-      tldr
-      exa
       abduco
+      bat
+      bspwm
+      clang
+      clonehero
+      cmake
+      coreutils
+      direnv
+      discord
       dvtm
+      exa
+      fd
+      feh
+      fish
+      fzf
+      gh
+      git
+      gnome.gnome-tweaks
+      google-chrome
       gotop
+      jq
+      kitty
+      maim
+      neofetch
+      neovim
+      nixfmt
+      nyxt
+      osu-lazer
+      ripgrep
+      rofi
+      sxhkd
+      tldr
+      vscode
+      wget
+      xclip
+      zsh
     ];
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
   };
 
   nix = {
@@ -160,5 +159,5 @@
     settings = { auto-optimise-store = true; };
   };
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "${version}";
 }
