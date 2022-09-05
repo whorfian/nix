@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, user, email, version, ... }:
+{ config, lib, pkgs, home-manager, ... }:
 let
   user = "whorf";
   email = "whorf@whorf.dev";
@@ -6,27 +6,9 @@ let
 in {
   imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
 
-  # home-manager = ./home.nix; # how?
-  home-manager = {
-    useGlobalPkgs = true;
-    users."${user}" = {
-      programs = {
-        git = {
-          enable = true;
-          userName = "${user}";
-          userEmail = "${email}";
-          extraConfig = { init.defaultBranch = "master"; };
-          aliases = {
-            c = "commit -am";
-            s = "status";
-            a = "add .";
-            i = "init";
-            d = "diff";
-            p = "push origin master";
-          };
-        };
-      };
-    };
+  home-manager = import ./home.nix {
+    user = user;
+    email = email;
   };
 
   programs.bash.shellAliases = {
