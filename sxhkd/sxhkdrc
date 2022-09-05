@@ -22,3 +22,5 @@ super + Escape
   pkill -usr1 -x sxhkd
 super + s
   maim --select | xclip -selection clipboard -target image/png
+super + Tab
+	bspc node -f last

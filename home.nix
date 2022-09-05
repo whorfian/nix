@@ -25,16 +25,9 @@
     };
     xsession = {
       windowManager = {
-        # bspwm.enable = true;
-        i3 = {
-          enable = false;
-          config = { modifier = "Mod4"; };
-        };
         bspwm = { 
           enable = true; 
-          extraConfig = ''
-#bspc monitor --reset-desktops 1 2 3 4 5 6 
-          '';
+          extraConfig = builtins.readFile bspwm/bspwmrc;
         };
       };
     };

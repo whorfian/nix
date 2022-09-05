@@ -44,26 +44,13 @@ in {
       xkbVariant = "";
       libinput.enable = true;
       windowManager = {
-        # bspwm.enable = true;
-        i3 = {
-          enable = false;
-          extraPackages = with pkgs; [
-            dmenu # application launcher most people use
-            i3status # gives you the default i3 status bar
-            i3lock # default i3 screen locker
-            i3blocks # if you are planning on using i3blocks over i3status
-          ];
-        };
         bspwm = { enable = true; };
       };
       desktopManager = {
         xterm.enable = false;
-        # gnome.enable = true;
       };
       displayManager = {
-        # defaultSession = "none+bspwm";
         defaultSession = "none+bspwm";
-        # gdm.enable = true;
         autoLogin = {
           enable = true;
           user = "${user}";
@@ -78,12 +65,7 @@ in {
       pulse.enable = true;
     };
   };
-  systemd.services = {
-    # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-  };
-
+  
   security = {
     rtkit.enable = true;
     sudo.wheelNeedsPassword = false;
