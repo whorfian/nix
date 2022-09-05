@@ -40,13 +40,30 @@ in {
   services = {
     xserver = {
       enable = true;
-      desktopManager.gnome.enable = true;
-      # windowManager.bspwm.enable = true;
       layout = "us";
       xkbVariant = "";
-      # libinput.enable = true; # touchpad if not using desktopManager
+      libinput.enable = true;
+      windowManager = {
+        # bspwm.enable = true;
+        i3 = {
+          enable = false;
+          extraPackages = with pkgs; [
+            dmenu # application launcher most people use
+            i3status # gives you the default i3 status bar
+            i3lock # default i3 screen locker
+            i3blocks # if you are planning on using i3blocks over i3status
+          ];
+        };
+        bspwm = { enable = true; };
+      };
+      desktopManager = {
+        xterm.enable = false;
+        # gnome.enable = true;
+      };
       displayManager = {
-        gdm.enable = true;
+        # defaultSession = "none+bspwm";
+        defaultSession = "none+bspwm";
+        # gdm.enable = true;
         autoLogin = {
           enable = true;
           user = "${user}";
@@ -125,6 +142,8 @@ in {
       wget
       xclip
       zsh
+      xdotool
+      dmenu
     ];
   };
 
