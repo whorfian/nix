@@ -11,11 +11,15 @@ in {
     email = email;
   };
 
-  programs.bash.shellAliases = {
-    g = "git";
-    v = "nvim";
-    l = "exa -la";
-    nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
+  programs = {
+    light.enable = true;
+    bash.shellAliases = {
+      g = "git";
+      v = "nvim";
+      l = "exa -la";
+      nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
+      gg = "g a && g c 'boop' && g p";
+    };
   };
 
   sound.enable = true;
@@ -38,17 +42,15 @@ in {
   i18n.defaultLocale = "en_US.utf8";
 
   services = {
+    logind.lidSwitch = "ignore";
     xserver = {
       enable = true;
+      videoDrivers = [ "nvidia" ];
       layout = "us";
       xkbVariant = "";
       libinput.enable = true;
-      windowManager = {
-        bspwm = { enable = true; };
-      };
-      desktopManager = {
-        xterm.enable = false;
-      };
+      windowManager = { bspwm = { enable = true; }; };
+      desktopManager = { xterm.enable = false; };
       displayManager = {
         defaultSession = "none+bspwm";
         autoLogin = {
@@ -65,7 +67,7 @@ in {
       pulse.enable = true;
     };
   };
-  
+
   security = {
     rtkit.enable = true;
     sudo.wheelNeedsPassword = false;
