@@ -24,11 +24,17 @@ in {
   sound.enable = true;
   hardware.pulseaudio.enable = false;
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      "video=HDMI-0:2560x1440@144"
+    ];
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
     };
   };
 
@@ -79,6 +85,7 @@ in {
 
   services.xserver.displayManager.sessionCommands = ''
     xrandr -o left
+    xrandr --output HDMI-0 --mode 2560x1440 --rate 144.0
   '';
 
   nixpkgs.config.allowUnfree = true;
