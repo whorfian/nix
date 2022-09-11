@@ -12,7 +12,6 @@ in {
   };
 
   programs = {
-    light.enable = true;
     bash.shellAliases = {
       g = "git";
       v = "nvim";
@@ -78,6 +77,10 @@ in {
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  services.xserver.displayManager.sessionCommands = ''
+    xrandr -o left
+  '';
+
   nixpkgs.config.allowUnfree = true;
 
   environment = {
@@ -92,6 +95,7 @@ in {
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
       abduco
       bat
+      brightnessctl
       bspwm
       clang
       clonehero
@@ -99,10 +103,13 @@ in {
       coreutils
       direnv
       discord
+      dmenu
+      dunst
       dvtm
       exa
       fd
       feh
+      file
       fish
       fzf
       gh
@@ -125,9 +132,8 @@ in {
       vscode
       wget
       xclip
-      zsh
       xdotool
-      dmenu
+      zsh
     ];
   };
 
