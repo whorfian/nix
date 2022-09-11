@@ -25,10 +25,10 @@ in {
   hardware.pulseaudio.enable = false;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "video=HDMI-0:2560x1440@144"
-    ];
+    # kernelPackages = pkgs.linuxPackages_latest;
+    # kernelParams = [
+    #  "video=HDMI-0:2560x1440@144"
+    # ];
     loader = {
       systemd-boot.enable = true;
       efi = {
@@ -97,6 +97,7 @@ in {
       TERMINAL = "kitty";
       SHELL = "bash";
       PAGER = "less";
+      BROWSER = "google-chrome-stable";
     };
     systemPackages = with pkgs; [
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))

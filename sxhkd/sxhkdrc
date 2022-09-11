@@ -1,9 +1,9 @@
 super + t
-  kitty
+  $TERMINAL
 super + e
-  kitty -e nvim
+  $TERMINAL -e $EDITOR
 super + b
-  google-chrome-stable
+  $BROWSER
 super + d
   discord
 super + r
@@ -12,27 +12,24 @@ super + w
   rofi -show window
 super + {_,shift + }q
   bspc node -{c,k}
-super + f
-  bspc node --state ~fullscreen
 super + Escape
   pkill -usr1 -x sxhkd && bspc wm -r
-super + n 
-  nrs
 super + s
   maim --select | xclip -selection clipboard -target image/png
 super + Tab
 	bspc node -f last
-super + {F11,F12}
-  brightnessctl s 10{-,+}%
 super + alt + Escape
   systemctl suspend
-
-
-
-### ADD
-#{F1,F2,F3}
-# mute, up, down
-
-### CHANGE
 super + {_,shift + }{1-9,0}
   bspc {desktop --focus,node --to-desktop} {1-9,10}
+
+## TODO: dunst notification for nrs output
+#super + n 
+#  nrs
+
+## TODO: open_or_goto(prog)
+
+## TODO: 
+
+#super + f
+#  bspc node --state ~fullscreen
