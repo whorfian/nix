@@ -1,12 +1,12 @@
 super + t
-  wmctrl -a "kitty" || kitty --title "kitty"
+  wmctrl -a "[[[kitty]]]" || kitty --title "[[[kitty]]]"
 super + e
-  wmctrl -a code || code
+  wmctrl -a "Visual Studio Code" || code
   #$TERMINAL -e $EDITOR
 super + b
-  wmctrl -a chrome || google-chrome-stable
+  wmctrl -a "Google Chrome" || google-chrome-stable
 super + d
-  wmctrl -a discord || discord
+  wmctrl -a "Discord" || discord
 
 super + r
   rofi -show run  
