@@ -18,7 +18,8 @@ in {
       l = "exa -la";
       nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
       gg = "g a && g c 'boop' && g p";
-      gurl = "google-chrome-stable $(git config --get remote.origin.url | cut -f 2 -d @ | tr ':' '/')";
+      gurl =
+        "google-chrome-stable $(git config --get remote.origin.url | cut -f 2 -d @ | tr ':' '/')";
     };
   };
 
@@ -48,6 +49,8 @@ in {
   i18n.defaultLocale = "en_US.utf8";
 
   services = {
+    picom.enable = true;
+    printing.enable = true;
     logind.lidSwitch = "ignore";
     xserver = {
       enable = true;
@@ -65,7 +68,6 @@ in {
         };
       };
     };
-    printing.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
