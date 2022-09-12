@@ -13,10 +13,9 @@ in {
       g = "git";
       v = "nvim";
       l = "exa -la";
+      h = "gh";
       nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
       gg = "g a && g c 'boop' && g p";
-      gurl =
-        "google-chrome-stable $(git config --get remote.origin.url | cut -f 2 -d @ | tr ':' '/')";
     };
   };
 
