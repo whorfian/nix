@@ -131,7 +131,6 @@ in {
       fzf
       gh
       git
-      gnome.gnome-tweaks
       google-chrome
       gotop
       jq

@@ -16,6 +16,19 @@
           p = "push origin master";
         };
       };
+      kitty = {
+        enable = true;
+        settings = {
+          font_size = "18.0";
+          font_family = "FiraCode Nerd Font";
+          bold_font = "auto";
+          italic_font = "auto";
+          bold_italic_font = "auto";
+          theme = "One Dark";
+          keybindings = "";
+
+        };
+      };
     };
     services = {
       sxhkd = {
@@ -25,8 +38,8 @@
     };
     xsession = {
       windowManager = {
-        bspwm = { 
-          enable = true; 
+        bspwm = {
+          enable = true;
           extraConfig = builtins.readFile bspwm/bspwmrc;
         };
       };
