@@ -104,7 +104,6 @@ in {
       bat
       brightnessctl
       bspwm
-      wmctrl
       clang
       clonehero
       cmake
@@ -125,6 +124,7 @@ in {
       google-chrome
       gotop
       jq
+      killall
       kitty
       maim
       neofetch
@@ -138,6 +138,7 @@ in {
       tldr
       vscode
       wget
+      wmctrl
       xclip
       xdotool
       zsh

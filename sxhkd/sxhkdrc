@@ -1,5 +1,5 @@
 super + t
-  wmctrl -a $TERMINAL --title "kitty" || $TERMINAL --title "kitty"
+  wmctrl -a "kitty" || kitty --title "kitty"
 super + e
   wmctrl -a code || code
   #$TERMINAL -e $EDITOR
