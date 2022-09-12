@@ -38,12 +38,6 @@ super + o
 #super + n 
 #  nrs
 
-## TODO: open_or_goto(prog)
 
-## TODO: 
-
-#super + f
-#  bspc node --state ~fullscreen
-
-#xdotool search --class code windowactivate --sync
-#windowactivate --sync
+#super + t; {a,b,c,d,e,...}
+#  kitty -e tmux -s {nix,qmk,taigen,...}
