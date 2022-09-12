@@ -4,24 +4,10 @@ let
   email = "whorf@whorf.dev";
   version = "22.05";
 in {
-  imports = [
-    ./hardware-configuration.nix
-    home-manager.nixosModule
-  ];
+  imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
 
+  # Is this stupid or isn't it? I'm confused. 
   home-manager = import ./home.nix { inherit pkgs neovim user email; };
-
-  programs = {
-    # neovim.enable = true;
-    bash.shellAliases = {
-      g = "git";
-      v = "nvim";
-      l = "exa -la";
-      h = "gh";
-      nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
-      gg = "g a && g c 'boop' && g p";
-    };
-  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;

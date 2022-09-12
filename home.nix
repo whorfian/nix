@@ -16,6 +16,14 @@
           p = "push origin master";
         };
       };
+      bash.shellAliases = {
+        g = "git";
+        v = "nvim";
+        l = "exa -la";
+        h = "gh";
+        nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
+        gg = "g a && g c 'boop' && g p";
+      };
       kitty = {
         enable = true;
         settings = {
