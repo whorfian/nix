@@ -4,10 +4,7 @@ let
   email = "whorf@whorf.dev";
   version = "22.05";
 in {
-  imports = [
-    ./hardware-configuration.nix
-    home-manager.nixosModule
-  ];
+  imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
 
   home-manager = import ./home.nix { inherit user email; };
 
@@ -32,16 +29,13 @@ in {
     #  "video=HDMI-0:2560x1440@144"
     # ];
     loader = {
+      timeout = 2;
       systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
       };
-      grub = {
-        extraConfig = ''
-          GRUB_CMDLINE_LINUX="video=HDMI-0:e";
-        '';
-      };
+      grub = { extraConfig = ''GRUB_CMDLINE_LINUX="video=HDMI-0:e"''; };
     };
   };
 
