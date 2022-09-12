@@ -1,4 +1,5 @@
 { a }: {
+  # inherit (a) user;???
   useGlobalPkgs = true;
   users."${a.user}" = {
     programs = {
