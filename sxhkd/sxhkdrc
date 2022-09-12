@@ -1,7 +1,8 @@
 super + t
   $TERMINAL
 super + e
-  $TERMINAL -e $EDITOR
+  code
+  #$TERMINAL -e $EDITOR
 super + b
   $BROWSER
 super + d
@@ -20,6 +21,8 @@ super + Tab
 	bspc node -f last
 super + alt + Escape
   systemctl suspend
+super + shift + r
+  reboot
 super + {_,shift + }{1-9,0}
   bspc {desktop --focus,node --to-desktop} {1-9,10}
 

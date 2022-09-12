@@ -6,10 +6,7 @@ let
 in {
   imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
 
-  home-manager = import ./home.nix {
-    user = user;
-    email = email;
-  };
+  home-manager = import ./home.nix { inherit user email; };
 
   programs = {
     bash.shellAliases = {
@@ -36,6 +33,11 @@ in {
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
+      };
+      grub = {
+        extraConfig = ''
+          GRUB_CMDLINE_LINUX="video=HDMI-0:e";
+        '';
       };
     };
   };
