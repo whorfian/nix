@@ -103,6 +103,7 @@ in {
       SHELL = "bash";
       PAGER = "less";
       BROWSER = "google-chrome-stable";
+      # CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-default-browser-check";
     };
     systemPackages = with pkgs; [
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
