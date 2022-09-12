@@ -1,4 +1,4 @@
-{ config, lib, pkgs, home-manager, ... }: #neovim??
+{ config, lib, pkgs, home-manager, neovim, ... }:
 let
   user = "whorf";
   email = "whorf@whorf.dev";
@@ -7,10 +7,9 @@ in {
   imports = [
     ./hardware-configuration.nix
     home-manager.nixosModule
-    #neovim.nixosModule??
   ];
 
-  home-manager = import ./home.nix { inherit user email; };
+  home-manager = import ./home.nix { inherit pkgs neovim user email; };
 
   programs = {
     # neovim.enable = true;
@@ -132,7 +131,6 @@ in {
       kitty
       maim
       neofetch
-      neovim
       nixfmt
       nyxt
       osu-lazer

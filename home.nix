@@ -1,4 +1,4 @@
-{ user, email }: {
+{ pkgs, neovim, user, email }: {
   useGlobalPkgs = true;
   users."${user}" = {
     programs = {
@@ -27,6 +27,31 @@
           theme = "One Dark";
           # keybindings = "";
         };
+      };
+      neovim = {
+        enable = true;
+        package = neovim.packages.${pkgs.system}.default;
+        extraPackages = with pkgs; [
+          tree-sitter
+          nodePackages.pyright
+          rust-analyzer
+        ];
+        plugins = with pkgs.vimPlugins; [
+          vim-nix
+          vim-which-key
+          nvim-lspconfig
+          nvim-cmp
+          cmp-nvim-lsp
+          cmp_luasnip
+          luasnip
+          plenary-nvim
+          telescope-nvim
+          delimitMate
+          nvim-treesitter
+          nvim-ts-rainbow
+          surround
+          vim-easymotion
+        ];
       };
     };
     services = {
