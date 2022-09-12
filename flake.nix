@@ -5,7 +5,7 @@
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # stylix.url = "github:danth/stylix";
+    neovim.url = "github:neovim/neovim?dir=contrib";
   };
   outputs = { self, nixpkgs, ... }@attrs: {
     nixosConfigurations.whorf = nixpkgs.lib.nixosSystem {

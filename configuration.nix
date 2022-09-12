@@ -1,14 +1,19 @@
-{ config, lib, pkgs, home-manager, ... }:
+{ config, lib, pkgs, home-manager, ... }: #neovim??
 let
   user = "whorf";
   email = "whorf@whorf.dev";
   version = "22.05";
 in {
-  imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
+  imports = [
+    ./hardware-configuration.nix
+    home-manager.nixosModule
+    #neovim.nixosModule??
+  ];
 
   home-manager = import ./home.nix { inherit user email; };
 
   programs = {
+    # neovim.enable = true;
     bash.shellAliases = {
       g = "git";
       v = "nvim";

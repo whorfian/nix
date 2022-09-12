@@ -27,10 +27,6 @@ super + shift + r
 super + {_,shift + }{1-9,0}
   bspc {desktop --focus,node --to-desktop} {1-9,10}
 
-super + o
-  xdotool search --class "nvidia-settings" windowactivate --sync || nvidia-settings
-
-
 
 
 
