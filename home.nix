@@ -1,11 +1,11 @@
-{ pkgs, neovim, user, email }: {
+{ a }: {
   useGlobalPkgs = true;
-  users."${user}" = {
+  users."${a.user}" = {
     programs = {
       git = {
         enable = true;
-        userName = "${user}";
-        userEmail = "${email}";
+        userName = "${a.user}";
+        userEmail = "${a.email}";
         extraConfig = { init.defaultBranch = "master"; };
         aliases = {
           c = "commit -am";
@@ -23,7 +23,8 @@
           v = "nvim";
           l = "exa -la";
           h = "gh";
-          nrs = "sudo nixos-rebuild switch --flake '/home/${user}/nix#${user}'";
+          nrs =
+            "sudo nixos-rebuild switch --flake '/home/${a.user}/nix#${a.user}'";
           gg = "g a && g c 'boop' && g p";
         };
       };
@@ -41,27 +42,38 @@
       };
       neovim = {
         enable = true;
-        package = neovim.packages.${pkgs.system}.default;
-        extraPackages = with pkgs; [
+        package = a.neovim.packages.${a.pkgs.system}.default;
+        extraPackages = with a.pkgs; [
           tree-sitter
           nodePackages.pyright
           rust-analyzer
+          #nix?
         ];
-        plugins = with pkgs.vimPlugins; [
-          vim-nix
-          vim-which-key
+        plugins = with a.pkgs.vimPlugins; [
+
+          # ESSENTIAL
           nvim-lspconfig
-          nvim-cmp
-          cmp-nvim-lsp
-          cmp_luasnip
-          luasnip
+          nvim-treesitter
+
+          # 1
           plenary-nvim
           telescope-nvim
-          delimitMate
-          nvim-treesitter
-          nvim-ts-rainbow
+
+          # 2
+          nvim-cmp
+          luasnip
+          cmp-nvim-lsp
+          cmp_luasnip
+
+          # 3
           surround
           vim-easymotion
+          vim-which-key
+
+          # ?
+          vim-nix
+          delimitMate
+          nvim-ts-rainbow
         ];
       };
     };

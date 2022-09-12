@@ -10,7 +10,11 @@
   outputs = { self, nixpkgs, ... }@attrs: {
     nixosConfigurations.whorf = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = attrs // {
+        user = "whorf";
+        email = "whorf@whorf.dev";
+        version = "22.05";
+      };
       modules = [ ./configuration.nix ];
     };
   };

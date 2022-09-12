@@ -1,13 +1,8 @@
-{ config, lib, pkgs, home-manager, neovim, ... }:
-let
-  user = "whorf";
-  email = "whorf@whorf.dev";
-  version = "22.05";
-in {
-  imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
+{ config, lib, pkgs, user, version, ... }@a: {
+  imports = [ ./hardware-configuration.nix a.home-manager.nixosModule ];
 
   # Is this stupid or isn't it? I'm confused. 
-  home-manager = import ./home.nix { inherit pkgs neovim user email; };
+  home-manager = import ./home.nix { inherit a; };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
