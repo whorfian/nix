@@ -1,12 +1,13 @@
 super + t
-  $TERMINAL
+  wmctrl -a $TERMINAL --title "kitty" || $TERMINAL --title "kitty"
 super + e
-  code
+  wmctrl -a code || code
   #$TERMINAL -e $EDITOR
 super + b
-  $BROWSER
+  wmctrl -a chrome || google-chrome-stable
 super + d
-  discord
+  wmctrl -a discord || discord
+
 super + r
   rofi -show run  
 super + w
@@ -26,6 +27,13 @@ super + shift + r
 super + {_,shift + }{1-9,0}
   bspc {desktop --focus,node --to-desktop} {1-9,10}
 
+super + o
+  xdotool search --class "nvidia-settings" windowactivate --sync || nvidia-settings
+
+
+
+
+
 ## TODO: dunst notification for nrs output
 #super + n 
 #  nrs
@@ -36,3 +44,6 @@ super + {_,shift + }{1-9,0}
 
 #super + f
 #  bspc node --state ~fullscreen
+
+#xdotool search --class code windowactivate --sync
+#windowactivate --sync

@@ -25,8 +25,7 @@
           italic_font = "auto";
           bold_italic_font = "auto";
           theme = "One Dark";
-          keybindings = "";
-
+          # keybindings = "";
         };
       };
     };

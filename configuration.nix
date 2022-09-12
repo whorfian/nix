@@ -25,9 +25,6 @@ in {
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
-    # kernelParams = [
-    #  "video=HDMI-0:2560x1440@144"
-    # ];
     loader = {
       timeout = 2;
       systemd-boot.enable = true;
@@ -61,6 +58,10 @@ in {
       desktopManager = { xterm.enable = false; };
       displayManager = {
         defaultSession = "none+bspwm";
+        sessionCommands = ''
+          xrandr -o left
+          xrandr --output HDMI-0 --mode 2560x1440 --rate 144.0
+        '';
         autoLogin = {
           enable = true;
           user = "${user}";
@@ -85,11 +86,6 @@ in {
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  services.xserver.displayManager.sessionCommands = ''
-    xrandr -o left
-    xrandr --output HDMI-0 --mode 2560x1440 --rate 144.0
-  '';
-
   nixpkgs.config.allowUnfree = true;
 
   environment = {
@@ -108,6 +104,7 @@ in {
       bat
       brightnessctl
       bspwm
+      wmctrl
       clang
       clonehero
       cmake
