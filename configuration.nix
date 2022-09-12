@@ -4,7 +4,10 @@ let
   email = "whorf@whorf.dev";
   version = "22.05";
 in {
-  imports = [ ./hardware-configuration.nix home-manager.nixosModule ];
+  imports = [
+    ./hardware-configuration.nix
+    home-manager.nixosModule
+  ];
 
   home-manager = import ./home.nix { inherit user email; };
 
