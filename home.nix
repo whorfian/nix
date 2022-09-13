@@ -1,5 +1,4 @@
 { a }: {
-  # inherit (a) user;???
   useGlobalPkgs = true;
   users."${a.user}" = {
     programs = {
@@ -17,8 +16,11 @@
           p = "push origin master";
         };
       };
-      bash = {
+      zsh = {
         enable = true;
+        autocd = true;
+        enableAutosuggestions = true;
+        enableCompletion = true;
         shellAliases = {
           g = "git";
           v = "nvim";
@@ -28,6 +30,24 @@
             "sudo nixos-rebuild switch --flake '/home/${a.user}/nix#${a.user}'";
           gg = "g a && g c 'boop' && g p";
         };
+        oh-my-zsh = {
+          enable = true;
+          theme = "robbyrussell";
+          plugins = [
+            "thefuck"
+            "command-not-found"
+            "git"
+            "history"
+            "sudo"
+          ];
+        };
+        initExtra = ''
+          bindkey '^ ' autosuggest-accept
+        '';
+      };
+      fzf = {
+        enable = true;
+        enableZshIntegration = true;
       };
       kitty = {
         enable = true;

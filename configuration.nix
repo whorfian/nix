@@ -8,7 +8,7 @@
   hardware.pulseaudio.enable = false;
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest; # why crash?
     loader = {
       timeout = 2;
       systemd-boot.enable = true;
@@ -16,7 +16,9 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
       };
-      grub = { extraConfig = ''GRUB_CMDLINE_LINUX="video=HDMI-0:e"''; };
+      grub = {
+        extraConfig = ''GRUB_CMDLINE_LINUX="video=HDMI-0:e"'';
+      }; # why no work?
     };
   };
 
@@ -65,9 +67,12 @@
     sudo.wheelNeedsPassword = false;
   };
 
-  users.users."${user}" = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users."${user}" = {
+      isNormalUser = true;
+      extraGroups = [ "networkmanager" "wheel" ];
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -77,14 +82,16 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "kitty";
-      SHELL = "bash";
+      SHELL = "zsh";
       PAGER = "less";
       BROWSER = "google-chrome-stable";
       # CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-default-browser-check";
     };
+    shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
       abduco
+      thefuck
       bat
       brightnessctl
       bspwm
