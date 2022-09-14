@@ -1,12 +1,17 @@
 { a }: {
   enable = true;
   package = a.neovim.packages.${a.pkgs.system}.default;
+  # ??????? 
+  extraConfig = ''luafile ~/.config/nvim/config.lua'';
+  # extraConfig = builtins.readFile ./init.lua;
+  # pluginWithConfigType.options.type = "lua";
   extraPackages = with a.pkgs; [
     tree-sitter
     nodePackages.pyright
     rust-analyzer
   ];
   plugins = with a.pkgs.vimPlugins; [
+
     onedark-nvim
 
     # ESSENTIAL

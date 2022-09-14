@@ -4,6 +4,8 @@ local o = vim.opt
 local k = vim.keymap
 local lsp = vim.lsp.buffer
 
+require('onedark').load()
+
 g.mapleader = " "
 
 o.guicursor = ""
@@ -30,5 +32,3 @@ k.set('n', '<leader>gs', function() lsp.signature_help() end)
 k.set('n', '<leader>gr', function() lsp.references() end)
 k.set('n', '<leader>gR', function() lsp.rename() end)
 k.set('n', '<leader>ga', function() lsp.code_action() end)
-
--- require('onedark').load()
