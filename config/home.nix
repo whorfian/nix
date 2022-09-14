@@ -22,14 +22,14 @@
     services = {
       sxhkd = {
         enable = true;
-        extraConfig = builtins.readFile sxhkd/sxhkdrc;
+        extraConfig = builtins.readFile ./sxhkdrc;
       };
     };
     xsession = {
       windowManager = {
         bspwm = {
           enable = true;
-          extraConfig = builtins.readFile bspwm/bspwmrc;
+          extraConfig = builtins.readFile ./bspwmrc;
         };
       };
     };

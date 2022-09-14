@@ -14,9 +14,9 @@
         user = "whorf";
         email = "whorf@whorf.dev";
         version = "22.05";
-        cs = (import ./colorscheme.nix) { lib = self.lib; };
+        cs = (import ./config/colorscheme.nix) { lib = self.lib; };
       };
-      modules = [ ./configuration.nix ];
+      modules = [ ./config/configuration.nix ];
     };
   };
 }
