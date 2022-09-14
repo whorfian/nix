@@ -7,6 +7,8 @@
     rust-analyzer
   ];
   plugins = with a.pkgs.vimPlugins; [
+    onedark-nvim
+
     # ESSENTIAL
     nvim-lspconfig
     nvim-treesitter
@@ -31,4 +33,7 @@
     delimitMate
     nvim-ts-rainbow
   ];
+  # generatedConfigs = {
+  #   lua =
+  # };
 }
