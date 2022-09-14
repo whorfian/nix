@@ -4,7 +4,6 @@
   # ??????? 
   extraConfig = ''luafile ~/.config/nvim/config.lua'';
   # extraConfig = builtins.readFile ./init.lua;
-  # pluginWithConfigType.options.type = "lua";
   extraPackages = with a.pkgs; [
     tree-sitter
     nodePackages.pyright
