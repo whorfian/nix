@@ -1,4 +1,6 @@
-{ a }: {
+{ a }:
+let cs = (import ./colorschemes/onedark.nix) { lib = a.lib; };
+in {
   useGlobalPkgs = true;
   users."${a.user}" = {
     programs = {
@@ -21,6 +23,8 @@
         autocd = true;
         enableAutosuggestions = true;
         enableCompletion = true;
+        defaultKeymap = "viins";
+        # shellAliases = (import ./zsh/aliases.nix);
         shellAliases = {
           g = "git";
           v = "nvim";
@@ -33,13 +37,8 @@
         oh-my-zsh = {
           enable = true;
           theme = "robbyrussell";
-          plugins = [
-            "thefuck"
-            "command-not-found"
-            "git"
-            "history"
-            "sudo"
-          ];
+          plugins =
+            [ "vi-mode" "thefuck" "command-not-found" "git" "history" "sudo" ];
         };
         initExtra = ''
           bindkey '^ ' autosuggest-accept
@@ -49,6 +48,14 @@
         enable = true;
         enableZshIntegration = true;
       };
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
+      bat = {
+        enable = true;
+        config.theme = cs.bat;
+      };
       kitty = {
         enable = true;
         settings = {
@@ -57,7 +64,8 @@
           bold_font = "auto";
           italic_font = "auto";
           bold_italic_font = "auto";
-          theme = "One Dark";
+          # theme = "One Dark";
+          theme = cs.kitty;
           # keybindings = "";
         };
       };
@@ -68,7 +76,6 @@
           tree-sitter
           nodePackages.pyright
           rust-analyzer
-          #nix?
         ];
         plugins = with a.pkgs.vimPlugins; [
 
