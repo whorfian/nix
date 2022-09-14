@@ -6,6 +6,7 @@
       source = ./nvim;
       recursive = true;
     };
+
     programs = {
       git = (import ./git.nix) { inherit a; };
       zsh = (import ./zsh.nix) { inherit a; };
