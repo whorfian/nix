@@ -11,33 +11,50 @@
   ];
   plugins = with a.pkgs.vimPlugins; [
 
-    onedark-nvim
-
-    # ESSENTIAL
+    # 
     nvim-lspconfig
+
+    # 
     nvim-treesitter
 
-    # 1
-    plenary-nvim
+    # 
     telescope-nvim
 
-    # 2
+    # 
     nvim-cmp
+
+    # 
     luasnip
-    cmp-nvim-lsp
-    cmp_luasnip
 
-    # 3
+    # 
     surround
-    vim-easymotion
-    vim-which-key
 
-    # ?
-    vim-nix
-    delimitMate
+    # 
+    vim-easymotion
+
+    # 
+    which-key-nvim
+
+    #
     nvim-ts-rainbow
+
+    # THEME
+    onedark-nvim
+
+    # UTILITY
+    plenary-nvim
+
+    # vim-nix
+    # delimitMate
+    # cmp-nvim-lsp
+    # cmp_luasnip
+    # telescope-file-browser-nvim
+    # gitsigns-nvim
   ];
   # generatedConfigs = {
   #   lua =
   # };
 }
+
+
+# idea: gd(?) in vim on vimPlugins takes me to the github page
