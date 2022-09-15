@@ -27,9 +27,6 @@
 # set-tab-title
 # set-tab-color
 
-# ls
-# focus-tab
-
-
-# in conf
-# allow_remote_control = true 
+# kitty @ focus-tab -m title:$(kitty @ ls |\
+#  jq -r '.[0].tabs[].title' |\
+#  rofi -dmenu)
