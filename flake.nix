@@ -20,3 +20,16 @@
     };
   };
 }
+
+
+# kitty
+# make a session that just opens up a bunch of abduco sessions with names and colors
+# set-tab-title
+# set-tab-color
+
+# ls
+# focus-tab
+
+
+# in conf
+# allow_remote_control = true 

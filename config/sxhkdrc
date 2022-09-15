@@ -1,3 +1,6 @@
+super + p
+  wmctrl -a "taigen" || kitty -e "abduco -A taigen nvim ~/taigen" --title "taigen"
+
 super + t
   wmctrl -a "[[[kitty]]]" || kitty --title "[[[kitty]]]"
 super + e

@@ -44,12 +44,17 @@
     # UTILITY
     plenary-nvim
 
-    # vim-nix
+    # LANGUAGES
+    vim-nix
+
+    # FORMATTING
+
     # delimitMate
     # cmp-nvim-lsp
     # cmp_luasnip
     # telescope-file-browser-nvim
     # gitsigns-nvim
+    # neogit
   ];
   # generatedConfigs = {
   #   lua =

@@ -50,3 +50,9 @@ k.set('n', '<leader>ga', function() lsp.code_action() end)
 --     \ 's' : [':Telescope lsp_workspace_symbols', 'Workspace symbols'],
 --     \ 'm' : [':Telescope marks',                 'Marks'],
 --     \ }
+
+-- file nav
+-- completion
+-- formatting
+-- folds
+-- snippets
