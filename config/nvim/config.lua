@@ -1,3 +1,12 @@
+--[[
+Credits/Resources:
+- LunarVim/Neovim-from-scratch
+- david-kunz/vim
+- sherubthakur/dotfiles/tree/master/modules/nvim
+- tjdevries/config_manager/blob/master/xdg_config/nvim
+- ThePrimeagen/.dotfiles/blob/master/nvim/.config/nvim
+]]
+
 local c = vim.cmd
 local g = vim.g
 local o = vim.opt
@@ -56,3 +65,26 @@ k.set('n', '<leader>ga', function() lsp.code_action() end)
 -- formatting
 -- folds
 -- snippets
+
+
+-- require "plugins"
+-- require "options"
+-- require "lsp"
+-- require "ts"
+-- require "cmp"
+-- require "snip"
+-- require "telescope"
+-- require "whichkey"
+-- require "autocommands"
+-- require "autopairs"
+-- require "comment"
+-- require "gitsigns"
+-- require "keymaps"
+-- require "colorscheme"
+
+-- require "bufferline"
+-- require "lualine"
+-- require "project"
+-- require "impatient"
+-- require "indentline"
+-- require "alpha"

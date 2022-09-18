@@ -6,6 +6,7 @@
 # these don't work outside of a kitty terminal. fix
 # you should also start kitty if it's not started (super + t)
 # you also need to focus kitty if it's not focused, probably
+# all of this is convoluted I could just use windows with titles
 super + k
   kitty @ focus-tab -m title:$(kitty @ ls | jq -r '.[0].tabs[].title' | rofi -dmenu)
 # start kitty if it's not started
