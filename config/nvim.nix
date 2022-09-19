@@ -1,9 +1,7 @@
 { a }: {
   enable = true;
   package = a.neovim.packages.${a.pkgs.system}.default;
-  # ??????? 
   extraConfig = "luafile ~/.config/nvim/config.lua";
-  # extraConfig = builtins.readFile ./init.lua;
   extraPackages = with a.pkgs; [
     tree-sitter
     nodePackages.pyright

@@ -1,0 +1,27 @@
+local o = vim.opt
+
+o.backup = false
+o.clipboard = "unnamedplus"
+o.cmdheight = 2
+o.cursorline = true
+o.expandtab = true
+o.guicursor = ""
+o.ignorecase = true
+o.incsearch = true
+o.number = true
+o.relativenumber = true
+o.scrolloff = 8
+o.shiftwidth = 2
+o.showtabline = 2
+o.sidescrolloff = 8
+o.smartcase = true
+o.smartindent = true
+o.softtabstop = 2
+o.swapfile = false
+o.tabstop = 2
+o.termguicolors = true
+o.timeoutlen = 100
+o.undofile = true
+o.updatetime = 300
+o.wrap = false
+o.writebackup = false

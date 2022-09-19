@@ -85,14 +85,11 @@
       SHELL = "zsh";
       PAGER = "less";
       BROWSER = "google-chrome-stable";
-      # CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-default-browser-check";
     };
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
       abduco
-      dtach
-      tmux
       thefuck
       bat
       brightnessctl
