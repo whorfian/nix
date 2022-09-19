@@ -2,22 +2,25 @@ local g = vim.g
 local k = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-k("", "<Space>", "<Nop>", o)
+k("", "<Space>", "<Nop>", opts)
 g.mapleader = " "
 g.maplocalleader = " "
 
-function n(from,to)
+function ns(from,to)
+    k("n",from,to,opts)
+end
+function nf(from,to)
     k("n",from,to,opts)
 end
 
-n('<leader>ff', ':Telescope fd<CR>')
-n('<leader>fG', ':Telescope live_grep<CR>')
-n('<leader>fg', ':Telescope grep_string<CR>')
+ns('<leader>ff', ':Telescope fd<CR>')
+ns('<leader>fG', ':Telescope live_grep<CR>')
+ns('<leader>fg', ':Telescope grep_string<CR>')
 
-n('<leader>gd', function() lsp.definition() end)
-n('<leader>gh', function() lsp.hover() end)
-n('<leader>gD', function() lsp.implementation() end)
-n('<leader>gs', function() lsp.signature_help() end)
-n('<leader>gr', function() lsp.references() end)
-n('<leader>gR', function() lsp.rename() end)
-n('<leader>ga', function() lsp.code_action() end)
+nf('<leader>gd', function() lsp.definition() end)
+nf('<leader>gh', function() lsp.hover() end)
+nf('<leader>gD', function() lsp.implementation() end)
+nf('<leader>gs', function() lsp.signature_help() end)
+nf('<leader>gr', function() lsp.references() end)
+nf('<leader>gR', function() lsp.rename() end)
+nf('<leader>ga', function() lsp.code_action() end)
