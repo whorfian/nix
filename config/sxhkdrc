@@ -9,13 +9,11 @@
 # all of this is convoluted I could just use windows with titles
 # super + k
 #   kitty @ focus-tab -m title:$(kitty @ ls | jq -r '.[0].tabs[].title' | rofi -dmenu)
-# start kitty if it's not started
-super + p 
-  wmctrl -a "[[taigen]]" || kitty --session ~/.config/kitty/startup.conf
 
-# make a session file so kitty starts all the abduco sessions
 super + t
-  wmctrl -a "[[kitty]]" || kitty --session ~/.config/kitty/startup.conf
+  wmctrl -a "[[kitty]]" || kitty
+super + p 
+  wmctrl -a "[[taigen]]" || kitty
 super + e
   wmctrl -a "Visual Studio Code" || code
   #$TERMINAL -e $EDITOR

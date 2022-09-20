@@ -31,5 +31,9 @@
     color13 = "${a.cs.bright-magenta}";
     color14 = "${a.cs.bright-cyan}";
     color15 = "${a.cs.bright-white}";
+
+    extraConfig = ''
+      startup_session startup.conf
+    '';
   };
 }
