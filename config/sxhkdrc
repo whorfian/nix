@@ -7,15 +7,15 @@
 # you should also start kitty if it's not started (super + t)
 # you also need to focus kitty if it's not focused, probably
 # all of this is convoluted I could just use windows with titles
-super + k
-  kitty @ focus-tab -m title:$(kitty @ ls | jq -r '.[0].tabs[].title' | rofi -dmenu)
+# super + k
+#   kitty @ focus-tab -m title:$(kitty @ ls | jq -r '.[0].tabs[].title' | rofi -dmenu)
 # start kitty if it's not started
-super + p 
-  kitty @ focus-tab -m title:taigen
+# super + p 
+#   kitty @ focus-tab -m title:taigen
 
 # make a session file so kitty starts all the abduco sessions
 super + t
-  wmctrl -a "[[[kitty]]]" || kitty --title "[[[kitty]]]"
+  wmctrl -a "[[[kitty]]]" || kitty --title "[[[kitty]]]" --session ~/.config/kitty/startup.conf
 super + e
   wmctrl -a "Visual Studio Code" || code
   #$TERMINAL -e $EDITOR

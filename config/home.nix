@@ -6,6 +6,7 @@
       source = ./nvim;
       recursive = true;
     };
+    home.file.".config/kitty/startup.conf" = builtins.readFile ./kitty-startup.conf;
     programs = {
       git = (import ./git.nix) { inherit a; };
       zsh = (import ./zsh.nix) { inherit a; };
