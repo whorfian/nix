@@ -11,9 +11,9 @@
 #   kitty @ focus-tab -m title:$(kitty @ ls | jq -r '.[0].tabs[].title' | rofi -dmenu)
 
 super + t
-  wmctrl -a "[[kitty]]" || kitty
+  wmctrl -a "[[kitty]]" || kitty && wmctrl -a "[[kitty]]"
 super + p 
-  wmctrl -a "[[taigen]]" || kitty
+  wmctrl -a "[[taigen]]" || kitty && wmctrl -a "[[taigen]]"
 super + e
   wmctrl -a "Visual Studio Code" || code
   #$TERMINAL -e $EDITOR
