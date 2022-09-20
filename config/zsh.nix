@@ -3,7 +3,7 @@
   autocd = true;
   enableAutosuggestions = true;
   enableCompletion = true;
-  defaultKeymap = "viins";
+  # defaultKeymap = "viins";
   shellAliases = {
     g = "git";
     v = "nvim";
@@ -16,7 +16,7 @@
     enable = true;
     theme = "robbyrussell";
     plugins =
-      [ "vi-mode" "thefuck" "command-not-found" "git" "history" "sudo" ];
+      [ "thefuck" "command-not-found" "git" "history" "sudo" ];
   };
   initExtra = ''
     bindkey '^ ' autosuggest-accept
