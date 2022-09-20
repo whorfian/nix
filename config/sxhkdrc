@@ -15,7 +15,7 @@
 
 # make a session file so kitty starts all the abduco sessions
 super + t
-  wmctrl -a "[[[kitty]]]" || kitty --title "[[[kitty]]]" --session ~/.config/kitty/startup.conf
+  wmctrl -a "[[kitty]]" || kitty --session ~/.config/kitty/startup.conf
 super + e
   wmctrl -a "Visual Studio Code" || code
   #$TERMINAL -e $EDITOR
