@@ -116,6 +116,7 @@
       jq
       killall
       kitty
+      kitty-themes
       maim
       neofetch
       nixfmt
