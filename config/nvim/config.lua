@@ -8,6 +8,7 @@ Credits/Resources:
 ]]
 
 -- file nav, completion, formatting, folds, snippets
+require "colorscheme"
 require "options"
 require "whichkey"
 
@@ -21,7 +22,6 @@ require "whichkey"
 -- require "comment"
 -- require "gitsigns"
 -- require "keymaps"
--- require "colorscheme"
 
 -- require "hydra"
 -- require "bufferline"

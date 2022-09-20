@@ -7,6 +7,9 @@
     italic_font = "auto";
     bold_italic_font = "auto";
     allow_remote_control = true;
+
+    extraConfig = builtins.readFile ./kitty.conf;
+
     # theme = "One Dark";
     # theme = a.cs.kitty; # kitty can't even read this? 
     # keybindings = "";
