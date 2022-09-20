@@ -10,8 +10,8 @@
 # super + k
 #   kitty @ focus-tab -m title:$(kitty @ ls | jq -r '.[0].tabs[].title' | rofi -dmenu)
 # start kitty if it's not started
-# super + p 
-#   kitty @ focus-tab -m title:taigen
+super + p 
+  wmctrl -a "[[taigen]]" || kitty --session ~/.config/kitty/startup.conf
 
 # make a session file so kitty starts all the abduco sessions
 super + t
