@@ -5,7 +5,13 @@
   home-manager = import ./home.nix { inherit a; };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+  };
+
+  # TODO: remove this in favor of a rofi script 
+  services.blueman.enable = true;
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # why crash?
