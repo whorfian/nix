@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 function k(m,f,t)
     vim.api.nvim_set_keymap(m,f,t,{ noremap = true, silent = true })
 end
@@ -19,6 +16,8 @@ end
 
 --- Any Mode?
 k("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 --- Normal Mode
 n('<leader>ff', ':Telescope fd<CR>')
@@ -36,20 +35,19 @@ n("<A-k>", "<Esc>:m .-2<CR>==gi")
 i("jk", "<ESC>")
 
 --- Visual Mode
+-- Fix weird yank buffer stuff
+v("p", '"_dP')
 -- Stay in indent mode
 v("<", "<gv")
 v(">", ">gv")
 -- Move text up and down
 v("<A-j>", ":m .+1<CR>==")
 v("<A-k>", ":m .-2<CR>==")
-v("p", '"_dP')
 
 --- Visual Block Mode
 -- Move text up and down
-x("J", ":move '>+1<CR>gv-gv")
-x("K", ":move '<-2<CR>gv-gv")
-x("<A-j>", ":move '>+1<CR>gv-gv")
-x("<A-k>", ":move '<-2<CR>gv-gv")
+x("<A-j>", ":m '>+1<CR>gv-gv")
+x("<A-k>", ":m '<-2<CR>gv-gv")
 
 
 
