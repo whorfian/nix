@@ -15,7 +15,7 @@ function x(f, t)
 end
 
 --- Any Mode?
-k("n", "<Space>", "<Nop>")
+k("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

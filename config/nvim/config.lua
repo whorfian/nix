@@ -11,7 +11,7 @@ Credits/Resources:
 require("whorf.colorscheme")
 require("whorf.options")
 require("whorf.keymaps")
-require("whorf.cmp")
+-- require("whorf.cmp")
 
 -- require "whichkey"
 -- require "lsp"
