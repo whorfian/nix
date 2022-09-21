@@ -22,8 +22,10 @@
     nvim-cmp
     cmp-buffer
     cmp-path
-    cmp-commandline
+    cmp-cmdline
     cmp-nvim-lsp
+    cmp-nvim-lua
+    cmp-spell
     cmp_luasnip
 
     # SNIPPETS
