@@ -10,8 +10,9 @@ Credits/Resources:
 -- file nav, completion, formatting, folds, snippets
 require "colorscheme"
 require "options"
-require "whichkey"
+require "keymaps"
 
+-- require "whichkey"
 -- require "lsp"
 -- require "ts"
 -- require "cmp"
@@ -21,7 +22,6 @@ require "whichkey"
 -- require "autopairs"
 -- require "comment"
 -- require "gitsigns"
-require "keymaps"
 
 -- require "hydra"
 -- require "bufferline"

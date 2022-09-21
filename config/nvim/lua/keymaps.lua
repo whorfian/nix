@@ -15,9 +15,9 @@ function x(f,t)
 end
 
 --- Any Mode?
-k("", "<Space>", "<Nop>")
+-- k("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = " "
 
 --- Normal Mode
 n('<leader>ff', ':Telescope fd<CR>')
