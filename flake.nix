@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim.url = "github:neovim/neovim?dir=contrib";
@@ -13,7 +13,7 @@
       specialArgs = attrs // {
         user = "whorf";
         email = "whorf@whorf.dev";
-        version = "22.11";
+        version = "22.05";
         cs = (import ./config/colorscheme.nix) { lib = self.lib; };
       };
       modules = [ ./config/configuration.nix ];
