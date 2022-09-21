@@ -13,6 +13,17 @@
   # TODO: remove this in favor of a rofi script 
   services.blueman.enable = true;
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    mplus-outline-fonts
+    dina-font
+    proggyfonts
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
+
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # why crash?
     loader = {
