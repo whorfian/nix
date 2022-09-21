@@ -114,6 +114,7 @@
       clang
       clonehero
       cmake
+      stylua
       coreutils
       direnv
       discord
