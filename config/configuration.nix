@@ -13,12 +13,28 @@
   # TODO: remove this in favor of a rofi script 
   services.blueman.enable = true;
 
-  fonts.fonts = with pkgs;
-    [
-      (nerdfonts.override {
-        fonts = [ "Hack" "Source Code Pro" "FiraCode"];
-      })
-    ];
+  ## TODO: set all fonts in one place (like cs)
+  fonts = {
+    fonts = with pkgs;
+      [
+        (nerdfonts.override {
+          fonts = [
+            "Hack"
+            "SourceCodePro"
+            "SourceSansPro"
+            "SourceSerifPro"
+            "FiraCode"
+          ];
+        })
+      ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "SourceCodePro Nerd Font" ];
+        sansSerif = [ "SourceSansPro Nerd Font" ];
+        serif = [ "SourceSerifPro Nerd Font" ];
+      };
+    };
+  };
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # why crash?

@@ -4,7 +4,7 @@
   # keybindings = "";
   settings = {
     font_size = "18.0";
-    font_family = "FiraCode Nerd Font";
+    font_family = "SourceCodePro Nerd Font";
     bold_font = "auto";
     italic_font = "auto";
     bold_italic_font = "auto";
