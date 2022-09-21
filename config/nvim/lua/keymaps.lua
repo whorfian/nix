@@ -1,27 +1,63 @@
-local g = vim.g
-local k = vim.api.nvim_set_keymap
-local lsp = vim.lsp.buffer
-local opts = { noremap = true, silent = true }
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-k("", "<Space>", "<Nop>", opts)
-g.mapleader = " "
-g.maplocalleader = " "
-
-function ns(from,to)
-    k("n",from,to,opts)
+function k(m,f,t)
+    vim.api.nvim_set_keymap(m,f,t,{ noremap = true, silent = true })
 end
-function nf(from,to)
-    k("n",from,to,opts)
+function n(f,t)
+    k("n",f,t)
+end
+function i(f,t)
+    k("i",f,t)
+end
+function v(f,t)
+    k("v",f,t)
+end
+function x(f,t)
+    k("x",f,t)
 end
 
-ns('<leader>ff', ':Telescope fd<CR>')
-ns('<leader>fG', ':Telescope live_grep<CR>')
-ns('<leader>fg', ':Telescope grep_string<CR>')
+--- Any Mode?
+k("", "<Space>", "<Nop>")
 
-nf('<leader>gd', function() lsp.definition() end)
-nf('<leader>gh', function() lsp.hover() end)
-nf('<leader>gD', function() lsp.implementation() end)
-nf('<leader>gs', function() lsp.signature_help() end)
-nf('<leader>gr', function() lsp.references() end)
-nf('<leader>gR', function() lsp.rename() end)
-nf('<leader>ga', function() lsp.code_action() end)
+--- Normal Mode
+n('<leader>ff', ':Telescope fd<CR>')
+n('<leader>fG', ':Telescope live_grep<CR>')
+n('<leader>fg', ':Telescope grep_string<CR>')
+-- Navigate buffers
+n("L", ":bnext<CR>")
+n("H", ":bprevious<CR>")
+-- Move text up and down
+n("<A-j>", "<Esc>:m .+1<CR>==gi")
+n("<A-k>", "<Esc>:m .-2<CR>==gi")
+
+--- Insert Mode
+-- Press jk fast to exit insert mode 
+i("jk", "<ESC>")
+
+--- Visual Mode
+-- Stay in indent mode
+v("<", "<gv")
+v(">", ">gv")
+-- Move text up and down
+v("<A-j>", ":m .+1<CR>==")
+v("<A-k>", ":m .-2<CR>==")
+v("p", '"_dP')
+
+--- Visual Block Mode
+-- Move text up and down
+x("J", ":move '>+1<CR>gv-gv")
+x("K", ":move '<-2<CR>gv-gv")
+x("<A-j>", ":move '>+1<CR>gv-gv")
+x("<A-k>", ":move '<-2<CR>gv-gv")
+
+
+
+
+-- nf('<leader>gd', function() lsp.definition() end)
+-- nf('<leader>gh', function() lsp.hover() end)
+-- nf('<leader>gD', function() lsp.implementation() end)
+-- nf('<leader>gs', function() lsp.signature_help() end)
+-- nf('<leader>gr', function() lsp.references() end)
+-- nf('<leader>gR', function() lsp.rename() end)
+-- nf('<leader>ga', function() lsp.code_action() end)

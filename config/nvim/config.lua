@@ -21,7 +21,7 @@ require "whichkey"
 -- require "autopairs"
 -- require "comment"
 -- require "gitsigns"
--- require "keymaps"
+require "keymaps"
 
 -- require "hydra"
 -- require "bufferline"
