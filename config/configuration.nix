@@ -13,12 +13,9 @@
   # TODO: remove this in favor of a rofi script 
   services.blueman.enable = true;
 
-  ## TODO: set all fonts in one place (like cs)
   fonts = {
     fonts = with pkgs;
-      [
-        (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
-      ];
+      [ (nerdfonts.override { fonts = [ "SourceCodePro" "FiraCode" ]; }) ];
     fontconfig = {
       defaultFonts = {
         monospace = [ a.style.mono-font ];

@@ -20,13 +20,3 @@
     };
   };
 }
-
-
-# kitty
-# make a session that just opens up a bunch of abduco sessions with names and colors
-# set-tab-title
-# set-tab-color
-
-# kitty @ focus-tab -m title:$(kitty @ ls |\
-#  jq -r '.[0].tabs[].title' |\
-#  rofi -dmenu)
