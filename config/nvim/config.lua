@@ -8,10 +8,10 @@ Credits/Resources:
 ]]
 
 -- file nav, completion, formatting, folds, snippets
-require("colorscheme")
-require("options")
-require("keymaps")
-require "cmp"
+require("whorf.colorscheme")
+require("whorf.options")
+require("whorf.keymaps")
+require("whorf.cmp")
 
 -- require "whichkey"
 -- require "lsp"

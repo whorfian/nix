@@ -43,20 +43,20 @@ cmp.setup({
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		}),
 	},
-	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-				spell = "[Spell]",
-			})[entry.source.name]
-			return vim_item
-		end,
-	},
+	-- formatting = {
+	-- 	fields = { "kind", "abbr", "menu" },
+	-- 	format = function(entry, vim_item)
+	-- 		vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+	-- 		vim_item.menu = ({
+	-- 			nvim_lsp = "[LSP]",
+	-- 			luasnip = "[Snippet]",
+	-- 			buffer = "[Buffer]",
+	-- 			path = "[Path]",
+	-- 			spell = "[Spell]",
+	-- 		})[entry.source.name]
+	-- 		return vim_item
+	-- 	end,
+	-- },
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
