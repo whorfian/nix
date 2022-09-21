@@ -2,9 +2,12 @@
 { lib }:
 let transparentify = color: "#99${lib.strings.removePrefix "#" color}";
 in rec {
-  vim = "one";
-  kitty = "One Dark";
-  bat = "base16";
+  kitty-theme = "One Dark";
+  bat-theme = "base16";
+
+  mono-font = "SourceCodePro Nerd Font";
+  sans-font = "SourceSansPro Nerd Font";
+  serif-font = "SourceSerifPro Nerd Font";
 
   bg-primary = black;
   bg-primary-bright = bright-black;

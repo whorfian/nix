@@ -22,7 +22,7 @@
       };
       bat = {
         enable = true;
-        config.theme = a.cs.bat;
+        config.theme = a.style.bat-theme;
       };
     };
     services = {

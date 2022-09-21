@@ -1,10 +1,10 @@
 { a }: {
   enable = true;
-  theme = a.cs.kitty;
+  theme = a.style.kitty-theme;
   # keybindings = "";
   settings = {
     font_size = "18.0";
-    font_family = "SourceCodePro Nerd Font";
+    font_family = a.style.mono-font;
     bold_font = "auto";
     italic_font = "auto";
     bold_italic_font = "auto";

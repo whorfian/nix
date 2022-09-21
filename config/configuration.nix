@@ -17,21 +17,13 @@
   fonts = {
     fonts = with pkgs;
       [
-        (nerdfonts.override {
-          fonts = [
-            "Hack"
-            "SourceCodePro"
-            "SourceSansPro"
-            "SourceSerifPro"
-            "FiraCode"
-          ];
-        })
+        (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
       ];
     fontconfig = {
       defaultFonts = {
-        monospace = [ "SourceCodePro Nerd Font" ];
-        sansSerif = [ "SourceSansPro Nerd Font" ];
-        serif = [ "SourceSerifPro Nerd Font" ];
+        monospace = [ a.style.mono-font ];
+        sansSerif = [ a.style.sans-font ];
+        serif = [ a.style.serif-font ];
       };
     };
   };
