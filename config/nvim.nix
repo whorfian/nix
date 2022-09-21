@@ -18,11 +18,17 @@
     # 
     telescope-nvim
 
-    # 
+    # COMPLETION
     nvim-cmp
+    cmp-buffer
+    cmp-path
+    cmp-commandline
+    cmp-nvim-lsp
+    cmp_luasnip
 
-    # 
+    # SNIPPETS
     luasnip
+    friendly-snippets
 
     # 
     surround
@@ -48,15 +54,10 @@
     # FORMATTING
 
     # delimitMate
-    # cmp-nvim-lsp
-    # cmp_luasnip
     # telescope-file-browser-nvim
     # gitsigns-nvim
     # neogit
   ];
-  # generatedConfigs = {
-  #   lua =
-  # };
 }
 
 
