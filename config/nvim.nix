@@ -26,6 +26,11 @@
     cmp-nvim-lsp
     cmp-nvim-lua
     cmp-spell
+    # cmp-rg
+    # cmp-zsh
+    # cmp-copilot
+    # cmp-dap
+    # cmp-emoji
     cmp_luasnip
 
     # SNIPPETS

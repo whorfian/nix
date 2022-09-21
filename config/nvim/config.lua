@@ -8,14 +8,14 @@ Credits/Resources:
 ]]
 
 -- file nav, completion, formatting, folds, snippets
-require "colorscheme"
-require "options"
-require "keymaps"
+require("colorscheme")
+require("options")
+require("keymaps")
+require "cmp"
 
 -- require "whichkey"
 -- require "lsp"
 -- require "ts"
--- require "cmp"
 -- require "snip"
 -- require "telescope"
 -- require "autocommands"
