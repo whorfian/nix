@@ -108,7 +108,6 @@
     systemPackages = with pkgs; [
       (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
       abduco
-      thefuck
       bat
       brightnessctl
       bspwm
@@ -135,6 +134,7 @@
       killall
       kitty
       kitty-themes
+      lua
       maim
       neofetch
       nixfmt
@@ -143,6 +143,7 @@
       ripgrep
       rofi
       sxhkd
+      thefuck
       tldr
       vscode
       wget
