@@ -152,6 +152,8 @@
       xclip
       xdotool
       zsh
+      mpv 
+      vlc
     ];
   };
 
