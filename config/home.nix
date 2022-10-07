@@ -1,6 +1,7 @@
 { a }: {
   useGlobalPkgs = true;
   users."${a.user}" = {
+    home.stateVersion = a.version;
     # home.file.".config/nvim/init.lua".source = ./nvim/init.lua;
     xdg.configFile.nvim = {
       source = ./nvim;

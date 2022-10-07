@@ -163,7 +163,7 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.unstable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
