@@ -158,6 +158,10 @@
     ];
   };
 
+  programs = {
+    steam.enable = true;
+  };
+
   nix = {
     gc = {
       automatic = true;
