@@ -154,6 +154,7 @@
       zsh
       mpv 
       vlc
+      lutris
     ];
   };
 
