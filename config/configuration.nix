@@ -172,13 +172,16 @@
     intelBusId = "PCI:2:0:0";
   };
 
+  hardware.nvidia.powerManagement.enable = true;
+  hardware.nvidia.powerManagement.finegrained = true;
+
   boot.kernelParams = [ "module_blacklist=i915" ];
 
   specialisation = {
     external-display.configuration = {
       system.nixos.tags = [ "external-display" ];
       hardware.nvidia.prime.offload.enable = lib.mkForce false;
-      hardware.nvidia.powerManagement.enable = lib.mkForce false;
+      # hardware.nvidia.powerManagement.enable = lib.mkForce false;
     };
   };
 
