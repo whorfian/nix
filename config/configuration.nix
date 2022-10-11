@@ -154,9 +154,8 @@
       zsh
       mpv 
       vlc
-      lutris
+      (lutris.override { extraLibraries = pkgs: [pkgs.libunwind ]; })
       bottles
-      libunwind
     ];
   };
 
