@@ -184,11 +184,11 @@
   #     hardware.nvidia.powerManagement.enable = lib.mkForce false;
   #   };
   # };
-  services.xserver.screenSection = ''
-Option "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-Option "AllowIndirectGLXProtocol" "off"
-Option "TripleBuffer" "on"
-  '';
+  #   services.xserver.screenSection = ''
+  # Option "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+  # Option "AllowIndirectGLXProtocol" "off"
+  # Option "TripleBuffer" "on"
+  #   '';
 
   programs = { steam.enable = true; };
 
