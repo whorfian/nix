@@ -156,6 +156,7 @@
       vlc
       lutris
       bottles
+      libunwind
     ];
   };
 
