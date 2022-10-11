@@ -155,6 +155,7 @@
       mpv 
       vlc
       lutris
+      bottles
     ];
   };
 
