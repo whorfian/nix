@@ -152,16 +152,14 @@
       xclip
       xdotool
       zsh
-      mpv 
+      mpv
       vlc
-      (lutris.override { extraLibraries = pkgs: [pkgs.libunwind ]; })
-      bottles
+      (lutris.override { extraLibraries = pkgs: [ pkgs.libunwind ]; })
+      dxvk
     ];
   };
 
-  programs = {
-    steam.enable = true;
-  };
+  programs = { steam.enable = true; };
 
   nix = {
     gc = {
