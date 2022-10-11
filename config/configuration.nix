@@ -156,6 +156,7 @@
       vlc
       (lutris.override { extraLibraries = pkgs: [ pkgs.libunwind ]; })
       dxvk
+      vulkan-tools
     ];
   };
 
