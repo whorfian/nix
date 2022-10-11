@@ -38,6 +38,8 @@
         extraConfig = ''GRUB_CMDLINE_LINUX="video=HDMI-0:e"'';
       }; # why no work?
     };
+    # Laptop shenanigans
+    kernelParams = [ "module_blacklist=i915" ];
   };
 
   networking = {
@@ -161,29 +163,27 @@
     ];
   };
 
-  hardware.nvidia.modesetting.enable = true;
-  hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.nvidia.prime = {
-    sync.enable = true;
-    # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
-    nvidiaBusId = "PCI:1:0:0";
-    # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
-    intelBusId = "PCI:2:0:0";
-  };
-
-  hardware.nvidia.powerManagement.enable = true;
-  hardware.nvidia.powerManagement.finegrained = true;
-
-  boot.kernelParams = [ "module_blacklist=i915" ];
-
-  specialisation = {
-    external-display.configuration = {
-      system.nixos.tags = [ "external-display" ];
-      hardware.nvidia.prime.offload.enable = lib.mkForce false;
-      # hardware.nvidia.powerManagement.enable = lib.mkForce false;
+  hardware = {
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      modesetting.enable = true;
+      prime = {
+        sync.enable = true;
+        nvidiaBusId = "PCI:1:0:0";  # lspci VGA/3D
+        intelBusId = "PCI:2:0:0";   # lspci VGA/3D
+      };
+      powerManagement.enable = true;
+      # powerManagement.finegrained = true;
     };
+    opengl.enable = true;
   };
+  # specialisation = {
+  #   external-display.configuration = {
+  #     system.nixos.tags = [ "external-display" ];
+  #     hardware.nvidia.prime.offload.enable = lib.mkForce false;
+  #     hardware.nvidia.powerManagement.enable = lib.mkForce false;
+  #   };
+  # };
 
   programs = { steam.enable = true; };
 
