@@ -172,6 +172,8 @@
     intelBusId = "PCI:2:0:0";
   };
 
+  boot.kernelParams = [ "module_blacklist=i915" ];
+
   specialisation = {
     external-display.configuration = {
       system.nixos.tags = [ "external-display" ];
