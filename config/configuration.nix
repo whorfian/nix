@@ -172,7 +172,7 @@
         nvidiaBusId = "PCI:1:0:0"; # lspci VGA/3D
         intelBusId = "PCI:2:0:0"; # lspci VGA/3D
       };
-      powerManagement.enable = true;
+      powerManagement.enable = false;
       # powerManagement.finegrained = true;
     };
     opengl.enable = true;
@@ -184,11 +184,11 @@
   #     hardware.nvidia.powerManagement.enable = lib.mkForce false;
   #   };
   # };
-  services.xserver.screenSection = ''
-    Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-    Option         "AllowIndirectGLXProtocol" "off"
-    Option         "TripleBuffer" "on"
-  '';
+  # services.xserver.screenSection = ''
+  #   Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+  #   Option         "AllowIndirectGLXProtocol" "off"
+  #   Option         "TripleBuffer" "on"
+  # '';
 
   programs = { steam.enable = true; };
 
