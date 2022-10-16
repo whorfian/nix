@@ -10,6 +10,7 @@
     l = "exa -la";
     h = "gh";
     nrs = "sudo nixos-rebuild switch --flake '/home/${a.user}/nix#${a.user}'";
+    nrsu = "nix flake update && sudo nixos-rebuild switch --flake '/home/${a.user}/nix#${a.user}'";
     gg = "g a && g c 'boop' && g p";
   };
   oh-my-zsh = {
