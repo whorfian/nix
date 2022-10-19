@@ -109,7 +109,7 @@
     };
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
-      (python3.withPackages (ps: with ps; [ numpy more-itertools ]))
+      (python3.withPackages (ps: with ps; [ numpy more-itertools pyserial pillow ]))
       abduco
       bat
       brightnessctl
@@ -161,6 +161,7 @@
       dxvk
       vulkan-tools
       pciutils
+      qmk
     ];
   };
 
