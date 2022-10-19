@@ -130,6 +130,9 @@
       file
       fish
       fzf
+      zoxide
+      zellij
+      nushell
       gh
       git
       google-chrome
