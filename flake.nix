@@ -5,7 +5,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim.url = "github:neovim/neovim?dir=contrib";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, ... }@attrs: {
     nixosConfigurations.whorf = nixpkgs.lib.nixosSystem {
@@ -16,7 +23,12 @@
         version = "22.11";
         style = (import ./config/style.nix) { lib = self.lib; };
       };
-      modules = [ ./config/configuration.nix ];
+      modules = [
+        ./config/configuration.nix
+        hyprland.nixosModules.default
+        { programs.hyprland.enable = true; }
+        # home-manager.nixosModule
+      ];
     };
   };
 }

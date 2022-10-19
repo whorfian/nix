@@ -1,8 +1,9 @@
 { config, lib, pkgs, user, version, ... }@a: {
   imports = [ ./hardware-configuration.nix a.home-manager.nixosModule ];
 
-  # Is this stupid or isn't it? I'm confused. 
   home-manager = import ./home.nix { inherit a; };
+
+  # TODO: try out wayland with hyprland
 
   sound.enable = true;
   hardware = {
@@ -28,7 +29,7 @@
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # why crash?
     loader = {
-      timeout = 2;
+      timeout = 5;
       systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
