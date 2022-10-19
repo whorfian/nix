@@ -5,10 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,8 +25,8 @@
       };
       modules = [
         ./config/configuration.nix
-        hyprland.nixosModules.default
-        { programs.hyprland.enable = true; }
+        # hyprland.nixosModules.default
+        # { programs.hyprland.enable = true; }
         # home-manager.nixosModule
       ];
     };
