@@ -80,6 +80,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
   };
 
@@ -135,7 +136,7 @@
       nushell
       gh
       helix
-      wireplumber
+      # wireplumber
       git
       google-chrome
       gotop
