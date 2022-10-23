@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05"; #/nixos-22.05 /nixos-release
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; #/nixos-22.05 /nixos-unstable
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05"; #/release-22.05 /
+      url = "github:nix-community/home-manager/"; #/release-22.05 /
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # hyprland = {
@@ -20,7 +20,7 @@
       specialArgs = attrs // {
         user = "whorf";
         email = "whorf@whorf.dev";
-        version = "22.05";
+        version = "22.11"; # 22.05 22.11
         style = (import ./config/style.nix) { lib = self.lib; };
       };
       modules = [

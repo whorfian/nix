@@ -7,6 +7,7 @@
       source = ./nvim;
       recursive = true;
     };
+    # manual.manpages.enable = false;
     home.file.".config/kitty/startup.conf".source = ./kitty-startup.conf;
     programs = {
       git = (import ./git.nix) { inherit a; };

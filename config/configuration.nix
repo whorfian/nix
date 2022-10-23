@@ -134,6 +134,8 @@
       zellij
       nushell
       gh
+      helix
+      wireplumber
       git
       google-chrome
       gotop
