@@ -52,7 +52,18 @@
   i18n.defaultLocale = "en_US.utf8";
 
   services = {
-    picom.enable = true;
+    picom = {
+      enable = true;
+      vSync = false;
+      backend = "glx";
+      settings = {
+        refresh-rate = 0;
+        unredir-if-possible = true;
+        unredir-if-possible-exclude = [
+          "class_g = 'looking-glass-client' && !focused"
+        ];
+      };
+    };
     printing.enable = true;
     logind.lidSwitch = "ignore";
     xserver = {
@@ -110,7 +121,8 @@
     };
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
-      (python3.withPackages (ps: with ps; [ numpy more-itertools pyserial pillow ]))
+      (python3.withPackages
+        (ps: with ps; [ numpy more-itertools pyserial pillow ]))
       abduco
       bat
       brightnessctl
