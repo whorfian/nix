@@ -150,6 +150,8 @@
       gh
       helix
       pavucontrol
+      mangohud
+      gamemode
       # wireplumber
       git
       google-chrome
