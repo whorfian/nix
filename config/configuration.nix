@@ -133,6 +133,7 @@
       stylua
       coreutils
       direnv
+      spotify
       discord
       dmenu
       dunst
@@ -148,6 +149,7 @@
       nushell
       gh
       helix
+      pauvucontrol
       # wireplumber
       git
       google-chrome
