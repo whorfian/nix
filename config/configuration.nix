@@ -149,7 +149,7 @@
       nushell
       gh
       helix
-      pauvucontrol
+      pavucontrol
       # wireplumber
       git
       google-chrome
