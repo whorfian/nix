@@ -53,20 +53,23 @@
 
   services = {
     picom = {
-      enable = true;
+      enable = false;
       vSync = false;
       backend = "glx";
       settings = {
         refresh-rate = 0;
         unredir-if-possible = true;
-        unredir-if-possible-exclude = [
-          "class_g = 'looking-glass-client' && !focused"
-        ];
+        unredir-if-possible-exclude =
+          [ "class_g = 'looking-glass-client' && !focused" ];
       };
     };
     printing.enable = true;
     logind.lidSwitch = "ignore";
     xserver = {
+      # testing stutter problems
+      #displayManager.gdm.enable = true;
+      #desktopManager.gnome.enable = true;
+
       enable = true;
       videoDrivers = [ "nvidia" ];
       layout = "us";
@@ -94,6 +97,23 @@
       # wireplumber.enable = true;
     };
   };
+
+  environment.gnome.excludePackages = (with pkgs; [ gnome-photos gnome-tour ])
+    ++ (with pkgs.gnome; [
+      cheese # webcam tool
+      gnome-music
+      gnome-terminal
+      gedit # text editor
+      epiphany # web browser
+      geary # email reader
+      evince # document viewer
+      gnome-characters
+      totem # video player
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+    ]);
 
   security = {
     rtkit.enable = true;
@@ -155,6 +175,7 @@
       # wireplumber
       git
       google-chrome
+      firefox
       gotop
       jq
       killall
