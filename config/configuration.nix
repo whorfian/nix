@@ -154,6 +154,7 @@
       coreutils
       direnv
       spotify
+      obs-studio
       discord
       dmenu
       dunst
