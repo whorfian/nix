@@ -155,6 +155,8 @@
       direnv
       spotify
       obs-studio
+      ffmpeg
+      unzip
       discord
       dmenu
       dunst
