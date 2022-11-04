@@ -81,7 +81,7 @@
         defaultSession = "none+bspwm";
         sessionCommands = ''
           #xrandr -o left
-          xrandr --output HDMI-0 --mode 2560x1440 --rate 144.0
+          #xrandr --output HDMI-0 --mode 2560x1440 --rate 144.0
         '';
         autoLogin = {
           enable = true;
@@ -122,7 +122,7 @@
 
   # virtualbox
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  users.extraGroups.vboxusers.members = [ "${user}" ];
   virtualisation.virtualbox.host.enableExtensionPack = true;
 
   users = {
@@ -134,6 +134,13 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  # hwo to use ge on lutris???
+  services.flatpak.enable = true;
+  xdg.portal.enable = true; # ?????
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # ???
+  # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  # flatpak install com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 
   environment = {
     variables = {
@@ -151,6 +158,7 @@
       abduco
       bat
       brightnessctl
+      # protonup #update plox
       bspwm
       clang
       clonehero

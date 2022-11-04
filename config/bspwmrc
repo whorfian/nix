@@ -1,6 +1,6 @@
 bspc monitor --reset-desktops 1 2 3 4 5 6 7 8 9
-bspc wm -a HDMI-0
-bspc wm -O HDMI-0
+bspc wm -a DFP-4
+bspc wm -O DFP-4
 bspc config border_width        0
 bspc config window_gap          0
 bspc config gapless_monocle     true
