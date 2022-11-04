@@ -81,7 +81,7 @@
         defaultSession = "none+bspwm";
         sessionCommands = ''
           #xrandr -o left
-          xrandr --output DFP-4 --mode 1920x1080 --rate 240.0
+          xrandr --output HDIM-0 --mode 1920x1080 --rate 240.0
         '';
         autoLogin = {
           enable = true;
