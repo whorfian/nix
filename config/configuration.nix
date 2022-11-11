@@ -81,7 +81,7 @@
         defaultSession = "none+bspwm";
         sessionCommands = ''
           #xrandr -o left
-          xrandr --output HDIM-0 --mode 1920x1080 --rate 240.0
+          #xrandr --output HDIM-0 --mode 1920x1080 --rate 240.0
         '';
         autoLogin = {
           enable = true;
@@ -97,23 +97,6 @@
       # wireplumber.enable = true;
     };
   };
-
-  environment.gnome.excludePackages = (with pkgs; [ gnome-photos gnome-tour ])
-    ++ (with pkgs.gnome; [
-      cheese # webcam tool
-      gnome-music
-      gnome-terminal
-      gedit # text editor
-      epiphany # web browser
-      geary # email reader
-      evince # document viewer
-      gnome-characters
-      totem # video player
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
 
   security = {
     rtkit.enable = true;
