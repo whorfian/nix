@@ -40,7 +40,7 @@
       }; # why no work?
     };
     # Laptop shenanigans
-    kernelParams = [ "module_blacklist=i915" ];
+    #kernelParams = [ "module_blacklist=i915" ];
   };
 
   networking = {
@@ -161,6 +161,7 @@
       fd
       feh
       file
+      xorg.xinit
       fish
       fzf
       zoxide
