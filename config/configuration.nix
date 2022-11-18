@@ -40,7 +40,7 @@
       }; # why no work?
     };
     # Laptop shenanigans
-    #kernelParams = [ "module_blacklist=i915" ];
+    kernelParams = [ "module_blacklist=i915" ];
   };
 
   networking = {
@@ -81,7 +81,7 @@
         defaultSession = "none+bspwm";
         sessionCommands = ''
           #xrandr -o left
-          #xrandr --output HDIM-0 --mode 1920x1080 --rate 240.0
+          xrandr --output HDMI-0 --mode 1920x1080 --rate 240.0
         '';
         autoLogin = {
           enable = true;
@@ -148,7 +148,7 @@
       cmake
       stylua
       coreutils
-      direnv
+      # direnv
       spotify
       obs-studio
       ffmpeg
