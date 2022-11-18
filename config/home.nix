@@ -19,7 +19,7 @@
         enableZshIntegration = true;
       };
       direnv = {
-        enable = true;
+        enable = false;
         nix-direnv.enable = true;
       };
       bat = {
