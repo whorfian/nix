@@ -82,6 +82,7 @@
         sessionCommands = ''
           #xrandr -o left
           xrandr --output HDMI-0 --mode 1920x1080 --rate 240.0
+          xrandr --output eDP-1-1 --off
         '';
         autoLogin = {
           enable = true;
@@ -145,6 +146,8 @@
       bspwm
       clang
       clonehero
+      krita
+      gimp
       cmake
       stylua
       coreutils
